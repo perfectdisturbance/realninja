@@ -1,12 +1,12 @@
 {
 	"SDKVersion": 2,
-	"Author": "Elgato Systems",
+	"Author": "Scott Anderson",
 	"CodePath": "app.html",
-	"Description": "Example description",
-	"Name": "Stream Deck Template",
-	"Icon": "actions/template/assets/action",
-	"URL": "https://www.elgato.com/en/gaming/stream-deck",
-	"Version": "1.0.2",
+	"Description": "A simple plugin to query web API's",
+	"Name": "Real Ninja",
+	"Icon": "actions/template/assets/webapi",
+	"URL": "https://www.andersonannex.com",
+	"Version": "0.0.1",
 	"Software": {
 		"MinimumVersion": "5.0"
 	},
@@ -20,30 +20,40 @@
 			"MinimumVersion": "10"
 		}
 	],
-	"Category": "Template Plugin",
-	"CategoryIcon": "actions/template/assets/actionimage",
+	"Category": "API",
+	"CategoryIcon": "actions/template/assets/webapi",
 	"Actions": [
 		{
-			"Icon": "actions/template/assets/actionimage",
-			"Name": "Example Action",
-			"Controllers": ["Keypad", "Encoder"],
-			"Encoder": {
-				"layout": "$B1",
-				"TriggerDescription": {
-					"Rotate": "Describe the rotation",
-					"Push": "Describe the encoder push",
-					"Touch": "Describe the touch",
-					"LongTouch": "Describe the long touch"
-				}
-			},
+			"Icon": "actions/template/assets/webapi",
+			"Name": "API Request",
+			"Controllers": ["Keypad"],
+			
 			"States": [
 				{
-					"Image": "actions/template/assets/action"
+					"Image": "actions/template/assets/webapi"
 				}
 			],
-			"Tooltip": "This is an example tooltip",
-			"UUID": "com.andersonannex.RealNinja.action",
-			"PropertyInspectorPath": "actions/template/property-inspector/inspector.html"
+			"Tooltip": "This action calls an API and optionally pops up a JSON response field.",
+			"UUID": "com.andersonannex.realninja.apiaction",
+			"PropertyInspectorPath": "actions/template/property-inspector/api-inspector.html"
+		},
+		{
+			"Icon": "actions/template/assets/webapi",
+			"Name": "API Toggle",
+			"Controllers": ["Keypad"],
+			"States": [
+				{
+					"Name": "On",
+					"Image": "actions/template/assets/webapi"
+				},
+				{
+					"Name": "Off",
+					"Image": "actions/template/assets/webapi"
+				}
+			],
+			"Tooltip": "This action calls alternating api endpoints and displays a success or failure icon.",
+			"UUID": "com.andersonannex.realninja.apitoggleaction",
+			"PropertyInspectorPath": "actions/template/property-inspector/apitoggle-inspector.html"
 		}
 	]
 }

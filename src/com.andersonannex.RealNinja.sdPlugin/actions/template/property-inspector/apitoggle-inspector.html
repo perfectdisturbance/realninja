@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>com.andersonannex.realninja Property Inspector</title>
+    <link rel="stylesheet" href="../../../libs/css/sdpi.css" />
+</head>
+
+<body>
+    <div class="sdpi-wrapper">
+        <form id="property-inspector">
+            <div class="sdpi-item">
+                <div data-localize class="sdpi-item-label" title="On URL">On URL</div>
+                <input data-localize class="sdpi-item-value" name="name" type="text" value="" placeholder="Web API URL" />
+            </div>
+            <div class="sdpi-item">
+                <div data-localize class="sdpi-item-label" title="Off URL">Off URL</div>
+                <input data-localize class="sdpi-item-value" name="name" type="text" value="" placeholder="Web API URL" />
+            </div>
+            <div class="sdpi-item" id="select_single">
+                <div class="sdpi-item-label">Method</div>
+                <select class="sdpi-item-value select" id="myselect">
+                   <option value="get">GET</option>
+                   <option value="post">POST</option>
+                </select>
+            </div>
+            <div type="textarea" class="sdpi-item" id="message_only">
+                <div class="sdpi-item-label">Payload</div>
+                <span class="sdpi-item-value textarea">
+                    <textarea type="textarea" maxlength="500" id="txa1"></textarea>
+                    <label for="txa1" >0/500</label>
+                </span>
+            </div>
+        </form>
+    </div>
+
+    <!-- Stream Deck Libs -->
+    <script src="../../../libs/js/constants.js"></script>
+    <script src="../../../libs/js/prototypes.js"></script>
+    <script src="../../../libs/js/timers.js"></script>
+    <script src="../../../libs/js/utils.js"></script>
+    <script src="../../../libs/js/events.js"></script>
+    <script src="../../../libs/js/api.js"></script>
+    <script src="../../../libs/js/property-inspector.js"></script>
+    <script src="../../../libs/js/dynamic-styles.js"></script>
+
+    <!-- Property Inspector Source -->
+    <script src="apitoggle-inspector.js"></script>
+</body>
+
+</html>
