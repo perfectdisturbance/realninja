@@ -13,31 +13,11 @@ $PI.onConnected((jsn) => {
         'input',
         Utils.debounce(150, () => {
             const value = Utils.getFormValue(form);
+            console.log(value);
             $PI.setSettings(value);
         })
     );
 });
-
-$PI.onDidReceiveSettings(({payload}) => {
-    console.log('onDidReceiveGlobalSettings', payload);
-})
-
-$PI.onPropertyInspectorDidAppear(() => {
-    console.log("PI appeared");
-    $PI.getSettings();
-});
-
-/**
- * Provide window level functions to use in the external window
- * (this can be removed if the external window is not used)
- 
-window.sendToInspector = (data) => {
-    console.log(data);
-};
-
-document.querySelector('#open-external').addEventListener('click', () => {
-    window.open('../../../external.html');
-});*/
 
 document.querySelectorAll('textarea').forEach(e => {
     const maxl = e.getAttribute('maxlength');
@@ -52,26 +32,3 @@ document.querySelectorAll('textarea').forEach(e => {
         e.onkeyup = fn;
     }
 });
-
-function saveSettings() {
-    var settings = {
-        url: document.querySelector('#url').value,
-        method: document.querySelector('#method').value,
-        payload: document.querySelector('#payload').value,
-        responsefield: document.querySelector('#successfield').value
-    }
-    console.log(settings);
-    $PI.setSettings({context: $PI.context, payload: settings});
-}
-
-function loadSettings(jsn) {
-    console.log(jsn);
-}
-
-document.querySelectorAll('.settingkey').forEach(e => {
-    e.onkeyup = (() => { saveSettings(); });
-})
-
-document.querySelectorAll('.settingchange').forEach(e => {
-    e.onchange = (() => { saveSettings() });
-})

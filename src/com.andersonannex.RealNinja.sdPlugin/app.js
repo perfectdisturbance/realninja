@@ -3,6 +3,7 @@
 
 const apiAction = new Action('com.andersonannex.realninja.apiaction');
 const apiToggleAction = new Action('com.andersonannex.realninja.apitoggleaction');
+var settingsCache = {};
 
 async function getURL(url) {
 	var controller = new AbortController();
@@ -30,16 +31,21 @@ apiAction.onWillAppear((jsn) => {
 });
 
 apiAction.onDidReceiveSettings((jsn) => {
-		//saveSettings to action
-		apiAction.url = jsn.payload.settings.url;
-		apiAction.responsefield = jsn.payload.settings.responsefield;
+		//saveSettings to the cache
+		if(!settingsCache.hasOwnProperty(jsn.context)) {
+			settingsCache[jsn.context] = {};
+		}
+		settingsCache[jsn.context].url = jsn.payload.settings.url;
+		settingsCache[jsn.context].method = jsn.payload.settings.method;
+		settingsCache[jsn.context].reqpayload = jsn.payload.settings.reqpayload;
+		settingsCache[jsn.context].successfield = jsn.payload.settings.successfield;
 	}
 ); 
 
 apiAction.onKeyUp(async ({ action, context, device, event, payload }) => {
-	var response = await getURL(apiAction.url);
+	var response = await getURL(settingsCache[context].url);
 	console.log(response);
-	if(response.success) {
+	if(response[settingsCache[context].successfield]) {
 		$SD.showOk(context);
 	} else {
 		$SD.showAlert(context);

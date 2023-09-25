@@ -47,8 +47,7 @@
 					"Image": "actions/template/assets/webapi"
 				},
 				{
-					"Name": "Off",
-					"Image": "actions/template/assets/webapi"
+					"Name": "Off"
 				}
 			],
 			"Tooltip": "This action calls alternating api endpoints and displays a success or failure icon.",
