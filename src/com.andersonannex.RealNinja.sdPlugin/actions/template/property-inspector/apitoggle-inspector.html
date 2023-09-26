@@ -16,26 +16,30 @@
     <div class="sdpi-wrapper">
         <form id="property-inspector">
             <div class="sdpi-item">
-                <div data-localize class="sdpi-item-label" title="On URL">On URL</div>
-                <input data-localize class="sdpi-item-value" name="name" type="text" value="" placeholder="Web API URL" />
+                <div data-localize class="sdpi-item-label" title="onurl">On URL</div>
+                <input data-localize class="sdpi-item-value settingkey" id="onurl" name="onurl" type="text" value="" placeholder="Web API URL" />
             </div>
             <div class="sdpi-item">
-                <div data-localize class="sdpi-item-label" title="Off URL">Off URL</div>
-                <input data-localize class="sdpi-item-value" name="name" type="text" value="" placeholder="Web API URL" />
+                <div data-localize class="sdpi-item-label" title="offurl">Off URL</div>
+                <input data-localize class="sdpi-item-value settingkey" id="offurl" name="offurl" type="text" value="" placeholder="Web API URL" />
             </div>
             <div class="sdpi-item" id="select_single">
                 <div class="sdpi-item-label">Method</div>
-                <select class="sdpi-item-value select" id="myselect">
+                <select class="sdpi-item-value select settingchange" id="method" name="method">
                    <option value="get">GET</option>
                    <option value="post">POST</option>
                 </select>
             </div>
-            <div type="textarea" class="sdpi-item" id="message_only">
+            <div type="textarea" class="sdpi-item">
                 <div class="sdpi-item-label">Payload</div>
                 <span class="sdpi-item-value textarea">
-                    <textarea type="textarea" maxlength="500" id="txa1"></textarea>
-                    <label for="txa1" >0/500</label>
+                    <textarea class="settingkey" type="textarea" maxlength="500" name="reqpayload" id="reqpayload"></textarea>
+                    <label for="reqpayload" >0/500</label>
                 </span>
+            </div>
+            <div class="sdpi-item">
+                <div data-localize class="sdpi-item-label" title="Success Field">Success Field</div>
+                <input data-localize class="sdpi-item-value settingkey" id="successfield" name="successfield" type="text" value="" placeholder="Success Field Value" />
             </div>
         </form>
     </div>
@@ -51,7 +55,7 @@
     <script src="../../../libs/js/dynamic-styles.js"></script>
 
     <!-- Property Inspector Source -->
-    <script src="apitoggle-inspector.js"></script>
+    <script src="api-inspector.js"></script>
 </body>
 
 </html>
