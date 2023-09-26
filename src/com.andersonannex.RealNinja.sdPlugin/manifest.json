@@ -27,15 +27,27 @@
 			"Icon": "actions/template/assets/webapi",
 			"Name": "API Request",
 			"Controllers": ["Keypad"],
-			
 			"States": [
 				{
 					"Image": "actions/template/assets/webapi"
 				}
 			],
-			"Tooltip": "This action calls an API and optionally pops up a JSON response field.",
+			"Tooltip": "This action calls an API and displays a alert or ok depending on the value of the success field.",
 			"UUID": "com.andersonannex.realninja.apiaction",
 			"PropertyInspectorPath": "actions/template/property-inspector/api-inspector.html"
+		},
+		{
+			"Icon": "actions/template/assets/webapi",
+			"Name": "API Text",
+			"Controllers": ["Keypad"],
+			"States": [
+				{
+					"Image": "actions/template/assets/webapi"
+				}
+			],
+			"Tooltip": "This action calls an API and displays a text response.",
+			"UUID": "com.andersonannex.realninja.apitextaction",
+			"PropertyInspectorPath": "actions/template/property-inspector/apitext-inspector.html"
 		},
 		{
 			"Icon": "actions/template/assets/webapi",
